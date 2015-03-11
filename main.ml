@@ -63,7 +63,7 @@ let () =
   List.iter
     (fun filename ->
       let channel = open_in filename in
-      try body false 1 channel with End_of_file -> ();
+      (try body false 1 channel with End_of_file -> ());
       close_in channel)
     (List.rev !filenames)
   end
